@@ -106,13 +106,15 @@ module.exports = function (app) {
     .put(function (req, res){
       let project = req.params.project;
       const {
+        _id,
         issue_title,
         issue_text,
         created_by,
         assigned_to,
         status_text,
+        open,
       } = req.body;
-      if(!_id){
+      if(!_id){ //bug here
         res.json({ error: "missing _id" });
         return;
       }
