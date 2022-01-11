@@ -65,7 +65,7 @@ module.exports = function (app) {
       status_text,
     } = req.body;
     if(!issue_title || !issue_text || !created_by){
-      res.json({ error: 'required fiel(s) missing' });
+      res.json({ error: 'required field(s) missing' });
       return;
     }
     const newIssue = new IssueModel({
@@ -148,7 +148,7 @@ module.exports = function (app) {
           if(err || !data){
             res.json({ error: "could not update", _id: _id});
           } else {
-            res.json({ result: "successfully updated"});
+            res.json({ result: "successfully updated", _id: _id});
           }
         });
       }
