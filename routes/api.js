@@ -165,7 +165,7 @@ module.exports = function (app) {
     }
     ProjectModel.findOne({ name: project }, (err, projectdata) =>{
       if (err || !projectdata) {
-        res.json({ error: "could not update", _id: _id });
+        res.json({ error: "could not delete", _id: _id });
       } else {
         const issueData = projectdata.issues.id(_id);
         if(!issueData) {
