@@ -4,20 +4,7 @@ const assert = chai.assert;
 const server = require('../server');
 
 chai.use(chaiHttp);
-//X Create an issue with every field: POST request to /api/issues/{project}X
-//X Create an issue with only required fields: POST request to /api/issues/{project}X
-//X Create an issue with missing required fields: POST request to /api/issues/{project}
-//X  View issues on a project: GET request to /api/issues/{project}
-//x View issues on a project with one filter: GET request to /api/issues/{project}
-//x View issues on a project with multiple filters: GET request to /api/issues/{project}
-//x Update one field on an issue: PUT request to /api/issues/{project}
-//x Update multiple fields on an issue: PUT request to /api/issues/{project}
-//x Update an issue with missing _id: PUT request to /api/issues/{project}
-//x Update an issue with no fields to update: PUT request to /api/issues/{project}
-//x Update an issue with an invalid _id: PUT request to /api/issues/{project}
-//x Delete an issue: DELETE request to /api/issues/{project}
-//x Delete an issue with an invalid _id: DELETE request to /api/issues/{project}
-// Delete an issue with missing _id: DELETE request to /api/issues/{project}
+
 let deleteID;
 suite('Functional Tests', ()=> {
   suite('Routing tests', ()=>{
@@ -87,10 +74,10 @@ suite('Functional Tests', ()=> {
       test('View issues on a project', (done) => {
         chai
         .request(server)
-        .get("/api/issues/fcc-project/")
+        .get("/api/issues/apitest/")
         .end((err, res) => {
           assert.equal(res.status, 200);
-          assert.equal(res.body.length, 37);
+          assert.equal(res.body.length, 5);
           done();
         })
       })
